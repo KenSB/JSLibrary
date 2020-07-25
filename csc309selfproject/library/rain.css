@@ -1,0 +1,120 @@
+.rain{
+  float:left;
+  position:relative;
+}
+
+
+.raindrop {
+  position: absolute;
+  float:left;
+  width: 2px;
+  height: 50px;
+  pointer-events: none;
+  --rainColor: white;
+  --posStart: 0px;
+  --posEnd: 800px;
+  animation: drop 5s linear infinite;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(var(--posStart));
+  }
+  75% {
+    transform: translateY(var(--posEnd));
+  }
+  100% {
+    transform: translateY(var(--posEnd));
+  }
+}
+
+.rainstem {
+  width: 2px;
+  height: 60%;
+  margin-left: 10px;
+  --rainColor: white;
+  background: linear-gradient(to bottom, var(--rainColor), var(--rainColor));
+  animation: stem .5s linear infinite;
+}
+
+@keyframes stem {
+  0% {
+    opacity: 0;
+  }
+  10%{
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.rainplop{
+  --rainColor: white;
+  background-color: transparent;
+  border:1px solid var(--rainColor);
+  width: 20px;
+  height: 10px;
+  border-radius: 10px / 5px;
+  transform: scale(0);
+  animation: rainplop .5s linear infinite;
+}
+@keyframes rainplop {
+  0% {
+    width: 20px;
+    height: 10px;
+    border-radius: 10px / 5px;
+    transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  90% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+
+.rainsplat {
+  width: 15px;
+  height: 10px;
+  --rainColor: white;
+  border-top: 2px dotted var(--rainColor);
+  border-radius: 50%;
+  margin-left: 3px;
+  margin-top: 10px;
+  opacity: 1;
+  transform: scale(0);
+  animation: rainsplat 0.5s linear infinite;
+}
+
+@keyframes rainsplat {
+  0% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(0);
+  }
+  90% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}

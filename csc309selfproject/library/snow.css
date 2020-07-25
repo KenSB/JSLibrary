@@ -1,0 +1,122 @@
+.snow {
+  float:left;
+  position:relative;
+}
+
+.snowflake1{
+  position: absolute;
+  bottom: 100%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: white;
+  pointer-events: none;
+  opacity: 0;
+  --posStart: 0px;
+  --posMid1: 200px;
+  --posMid2: 400px;
+  --posMid3: 600px;
+  --posMid4: 800px;
+  --posEnd: 1000px;
+  animation: snowFallGentle1 3s linear infinite;
+}
+.snowflake2{
+  position: absolute;
+  bottom: 100%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: white;
+  pointer-events: none;
+  opacity: 0;
+  --posStart: 0px;
+  --posMid1: 200px;
+  --posMid2: 400px;
+  --posMid3: 600px;
+  --posMid4: 800px;
+  --posEnd: 1000px;
+  animation: snowFallGentle2 3s linear infinite;
+}
+
+.snowflake.blowRight{
+  animation: snowFallRight 5s linear infinite;
+}
+
+.snowflake.blowLeft{
+  animation: snowFallRight 5s linear infinite;
+}
+
+.snowflake.blowGentle{
+  animation: {snowFallGentle 5s linear infinite};
+}
+
+@keyframes snowFallGentle1 {
+  0% {
+    transform: translateX(20px) translateY(var(--posStart));
+    opacity: 0;
+  }
+  20% {
+    transform: translateX(-20px) translateY(var(--posMid1));
+    opacity: 1;
+  }
+  40% {
+    transform: translateX(-20px) translateY(var(--posMid2));
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(20px) translateY(var(--posMid3));
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(20px) translateY(var(--posMid4));
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(20px) translateY(var(--posEnd));
+    opacity: 1;
+  }
+}
+@keyframes snowFallGentle2 {
+  0% {
+    transform: translateX(-50px) translateY(var(--posStart));
+    opacity: 0;
+  }
+  20% {
+    transform: translateX(-20px) translateY(var(--posMid1));
+    opacity: 1;
+  }
+  40% {
+    transform: translateX(20px) translateY(var(--posMid2));
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(-20px) translateY(var(--posMid3));
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-20px) translateY(var(--posMid4));
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(20px) translateY(var(--posEnd));
+    opacity: 1;
+  }
+}
+
+/* @keyframes snowFallGentle {
+  0% {
+    transform: translateY(var(--posStart));
+  }
+  25% {
+    transform: translateY(var(--posMid1));
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateY(var(--posMid2));
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateY(var(--posEnd));
+    transform: translateX(10px);
+  }
+} */
