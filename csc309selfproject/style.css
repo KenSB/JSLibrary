@@ -4,7 +4,7 @@ body{
 .rainPanel {
   display: block;
   position: absolute;
-  left: 100px;
+  left: 300px;
   top: 200px;
   width: 1000px;
   height: 300px;
@@ -13,7 +13,7 @@ body{
 .snowPanel {
   display: block;
   position: absolute;
-  left: 100px;
+  left: 300px;
   top: 600px;
   width: 1000px;
   height: 500px;

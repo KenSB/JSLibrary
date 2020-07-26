@@ -38,17 +38,6 @@
   animation: snowFallGentle2 3s linear infinite;
 }
 
-.snowflake.blowRight{
-  animation: snowFallRight 5s linear infinite;
-}
-
-.snowflake.blowLeft{
-  animation: snowFallRight 5s linear infinite;
-}
-
-.snowflake.blowGentle{
-  animation: {snowFallGentle 5s linear infinite};
-}
 
 @keyframes snowFallGentle1 {
   0% {

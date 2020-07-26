@@ -58,8 +58,8 @@ function aniWeather(){
 }
 
 const animateRain = (speed, intensity, width, height, x, y, color)=>{
-  var position = 0;
-  var rainEntities = '<div class="rain" '.concat(
+  let position = 0;
+  let rainEntities = '<div class="rain" '.concat(
     'style="left: ',x,'px; top: ',y,'px; width: ',width,'px; height: ',
     height,'px;">')
   while(position < 100 - (6-intensity)*2){
@@ -78,7 +78,7 @@ const animateRain = (speed, intensity, width, height, x, y, color)=>{
       //position from left
       '<div class="raindrop" style="left: ', position,'%;',
       '--rainColor:', color,';',
-      //position from bottom
+      //The ending position
       '--posEnd: ',height,'px;',
       //delay of the raindrop and duration of the raindrop (speed)
       'animation-delay: 0.', delay,'s;',
@@ -109,8 +109,8 @@ const animateRain = (speed, intensity, width, height, x, y, color)=>{
 }
 
 const animateSnow = (speed, intensity, width, height, x, y)=>{
-  var position = 0;
-  var snowEntities = '<div class="snow" '.concat(
+  let position = 0;
+  let snowEntities = '<div class="snow" '.concat(
     'style="left: ',x,'px; top: ',y,'px; width: ',width,'px; height: ',
     height,'px;">')
   while(position < 95){
@@ -128,20 +128,16 @@ const animateSnow = (speed, intensity, width, height, x, y)=>{
         //raindrop properties
         //position from left
         '<div class="snowflake1" style="left: ', position,'%;',
-        //position from bottom
+        //positions for the animation
         '--posMid1: ',Math.floor(height/5),'px;',
-        //position from bottom
         '--posMid2: ',Math.floor((height*2)/5),'px;',
-        //position from bottom
         '--posMid3: ',Math.floor((height*3)/5),'px;',
-        //position from bottom
         '--posMid4: ',Math.floor((height*4)/5),'px;',
-        //position from bottom
+        //The ending position
         '--posEnd: ',height,'px;',
-        //delay of the raindrop and duration of the raindrop (speed)
+        //delay of the snowflake and duration of the snowflake (speed)
         'animation-delay: 0.', delay,'s;',
         'animation-duration:', (0.3*(6-speed)+(.01*speedDelay)), 's;"></div>',
-        // 'animation-duration: ', 4-Math.floor(speed*0.5+1),'.'  , 8- speed, speedDelay, 's;"></div>',
       )
     }
     if(snowType === 2){
@@ -149,17 +145,13 @@ const animateSnow = (speed, intensity, width, height, x, y)=>{
       //raindrop properties
       //position from left
       '<div class="snowflake2" style="left: ', position,'%;',
-      //position from bottom
+      //positions for the animation
       '--posMid1: ',Math.floor(height/5),'px;',
-      //position from bottom
       '--posMid2: ',Math.floor((height*2)/5),'px;',
-      //position from bottom
       '--posMid3: ',Math.floor((height*3)/5),'px;',
-      //position from bottom
       '--posMid4: ',Math.floor((height*4)/5),'px;',
-      //position from bottom
       '--posEnd: ',height,'px;',
-      //delay of the raindrop and duration of the raindrop (speed)
+      //delay of the snowflake and duration of the snowflake (speed)
       'animation-delay: 0.', delay,'s;',
       'animation-duration:', (0.3*(6-speed)+(.01*speedDelay)), 's;"></div>',
     )
