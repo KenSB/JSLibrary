@@ -1,4 +1,10 @@
 'use strict';
+//getting the css in the dom
+const head = document.querySelector('head');
+head.innerHTML = head.innerHTML.concat(
+'<link rel="stylesheet" type="text/css" href="./library/rain.css">',
+'<link rel="stylesheet" type="text/css" href="./library/snow.css">')
+
 function aniWeather(){
   //library functions
   const self = {
