@@ -60,3 +60,6 @@ function snowIntensity(intensity){
   snowSelect.innerHTML="";
   snowSelect.innerHTML= aniWeather().aniSnow(snowArgs);
 }
+
+const clearSelect = document.querySelector('.clearPanel')
+clearSelect.innerHTML = aniWeather().aniClear();;

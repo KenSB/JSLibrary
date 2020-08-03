@@ -3,11 +3,19 @@
 const head = document.querySelector('head');
 head.innerHTML = head.innerHTML.concat(
 '<link rel="stylesheet" type="text/css" href="./library/rain.css">',
-'<link rel="stylesheet" type="text/css" href="./library/snow.css">')
+'<link rel="stylesheet" type="text/css" href="./library/snow.css">',
+'<link rel="stylesheet" type="text/css" href="./library/clear.css">')
 
 function aniWeather(){
   //library functions
   const self = {
+    aniClear: (context)=>{
+      const defaults = {
+        time: 12
+      }
+      const args = Object.assign(defaults, context)
+      return animateClear(args.time)
+    },
     aniRain: (context)=>{
       const defaults= {
         speed: 3, // 1<= speed <=5
@@ -165,4 +173,14 @@ const animateSnow = (speed, intensity, width, height, x, y)=>{
   }
   snowEntities = snowEntities.concat('</div>')
   return snowEntities;
+}
+
+const animateClear = (time) => {
+  let backgroundElement = '<div class="clear"><div class="clearBackground">'
+  const colors= ["#000000","#000066","#000099","#0099ff","#ccccff","#ffcc99","#ffff99","#ff9900","#ffcc99","#00ccff","#87ceeb"]
+  for(let i=0;i<=11;i++){
+    backgroundElement = backgroundElement.concat('<div class="clearSubBackground',i,'"></div>')
+  }
+  backgroundElement = backgroundElement.concat('</div></div>')
+  return backgroundElement;
 }
