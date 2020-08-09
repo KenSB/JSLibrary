@@ -28,3 +28,11 @@ body{
   height: 500px;
   border: 10px solid white;
 }
+.cloudPanel {
+  position: absolute;
+  left: 300px;
+  top: 1000px;
+  width: 1000px;
+  height: 500px;
+  border: 10px solid white;
+}

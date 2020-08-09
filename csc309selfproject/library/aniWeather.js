@@ -4,7 +4,9 @@ const head = document.querySelector('head');
 head.innerHTML = head.innerHTML.concat(
 '<link rel="stylesheet" type="text/css" href="./library/rain.css">',
 '<link rel="stylesheet" type="text/css" href="./library/snow.css">',
-'<link rel="stylesheet" type="text/css" href="./library/clear.css">')
+'<link rel="stylesheet" type="text/css" href="./library/clear.css">',
+'<link rel="stylesheet" type="text/css" href="./library/cloud.css">')
+
 
 function aniWeather(){
   //library functions
@@ -15,6 +17,19 @@ function aniWeather(){
       }
       const args = Object.assign(defaults, context)
       return animateClear(args.time)
+    },
+    aniCloud: (context)=>{
+      const defaults = {
+        greyness: 1, // 1(white)<= greyness <= 5(darkgrey)
+        density: 1, // 1 <= density <= 5
+        speed: 1, // 1 <= speed <= 5
+        width: 1000,
+        height: 500,
+        x: 0,
+        y: 0,
+      }
+      const args = Object.assign(defaults, context)
+      return animateCloud(args.greyness, args.density, args.speed, args.width- 50, args.height, args.x, args.y, args.color)
     },
     aniRain: (context)=>{
       const defaults= {
@@ -183,4 +198,30 @@ const animateClear = (time) => {
   }
   backgroundElement = backgroundElement.concat('</div></div>')
   return backgroundElement;
+}
+
+const animateCloud = (greyness, density, speed, width, height, x, y) => {
+  let position = 0;
+  const colors= ["#ffffff","#cccccc","#a6a6a6","#808080","#595959"]
+  let cloudEntities = '<div class="cloud" '.concat(
+    'style="left: ',x,'px; top: ',y,'px; width: ',width,'px; height: ',
+    height,'px; ','--cloudColor:', colors[greyness-1],';','">')
+  while(position < 100 - (10-density)*2){
+    //A random number which represents the amount of space between raindrops.
+    //The density controls the width of the gap.
+    const cloudGap = Math.floor(Math.random()*(12 - density*2 - 1)) + 2 ;
+    // Adds randomness to speed
+    const speedDelay = Math.floor(Math.random() * (99 - 1 + 1)) + 1;
+    // Randomizes the cloudSize length
+    const cloudSize = Math.floor(Math.random() * (4)) + 1;
+    position += cloudGap;
+    cloudEntities = cloudEntities.concat(
+      //cloud properties
+      //position from top
+      '<div class="cloudSize',cloudSize,'" style="top: ', position,'%;',
+      'animation-duration: ', 20 - ((5-speed)*2+(5-cloudSize)),'.',speedDelay,'s;"></div>',
+    )
+  }
+  cloudEntities = cloudEntities.concat('</div>')
+  return cloudEntities;
 }

@@ -63,3 +63,5 @@ function snowIntensity(intensity){
 
 const clearSelect = document.querySelector('.clearPanel')
 clearSelect.innerHTML = aniWeather().aniClear();;
+const cloudSelect = document.querySelector('.cloudPanel')
+cloudSelect.innerHTML = aniWeather().aniCloud();;
