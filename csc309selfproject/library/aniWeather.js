@@ -5,12 +5,24 @@ head.innerHTML = head.innerHTML.concat(
 '<link rel="stylesheet" type="text/css" href="./library/rain.css">',
 '<link rel="stylesheet" type="text/css" href="./library/snow.css">',
 '<link rel="stylesheet" type="text/css" href="./library/clear.css">',
-'<link rel="stylesheet" type="text/css" href="./library/cloud.css">')
+'<link rel="stylesheet" type="text/css" href="./library/cloud.css">',
+'<link rel="stylesheet" type="text/css" href="./library/lightning.css">')
 
 
 function aniWeather(){
   //library functions
   const self = {
+    aniLightning: (context)=>{
+      const defaults = {
+        intensity:3, // 1<= intensity <=5
+        width: 1000,
+        height: 500,
+        x: 0,
+        y: 0,
+      }
+      const args = Object.assign(defaults, context)
+      return animateLightning(args.intensity, args.width, args.height, args.x, args.y)
+    },
     aniClear: (context)=>{
       const defaults = {
         time: 12
@@ -224,4 +236,47 @@ const animateCloud = (greyness, density, speed, width, height, x, y) => {
   }
   cloudEntities = cloudEntities.concat('</div>')
   return cloudEntities;
+}
+
+const animateLightning = (intensity, width, height, x, y)=>{
+  let position = 0;
+  let lightningEntities = '<div class="lightning" '.concat(
+    'style="left: ',x,'px; top: ',y,'px; width: ',width,'px; height: ',
+    height,'px;">')
+  while(position < 95 - (10-intensity)*2){
+    //A random number which represents the amount of space between raindrops.
+    //The intensity controls the width of the gap.
+    const lightningGap = Math.floor(Math.random()*(12 - intensity*2 - 1)) + 2 ;
+    //delay to offset the raindrop from other raindrops
+    const delay = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
+    const delayMili = Math.floor(Math.random() * (99 - 1 + 1)) + 1;
+    const segments = Math.floor(Math.random() * (5 - 1 + 1)) + 3;
+    position += lightningGap;
+    lightningEntities = lightningEntities.concat(
+      //raindrop properties
+      //position from left
+      '<div class="lightningBolt" style="left: ', position,'%;',
+      //The ending position
+      '--posEnd: ',height,'px;',
+      //delay of the raindrop and duration of the raindrop (speed)
+      'animation-delay:', delay,'.',delayMili,'s;">',
+    )
+    for(let segNum = 0; segNum < segments; segNum++){
+      if(segNum%2 === 0){
+        lightningEntities = lightningEntities.concat(
+          '<svg height="',Math.floor((1/segments)*height),'px" width="',50,'px">',
+          '<line class="lightningSegment" x1="',100,'%"','y1="',100,'%"',
+          '"x2="',0,'%"','y2="',0,'%"/></svg>')
+      }
+      else{
+        lightningEntities = lightningEntities.concat(
+          '<svg height="',Math.floor((1/segments)*height),'px" width="',50,'px">',
+          '<line class="lightningSegment" x1="',100,'%"','y1="',0,'%"',
+          '"x2="',0,'%"','y2="',100,'%"/></svg>')
+      }
+    }
+    lightningEntities = lightningEntities.concat('</div>')
+  }
+  lightningEntities = lightningEntities.concat('</div>')
+  return lightningEntities;
 }

@@ -36,3 +36,12 @@ body{
   height: 500px;
   border: 10px solid white;
 }
+
+.lightningPanel {
+  position: absolute;
+  left: 300px;
+  top: 1700px;
+  width: 1000px;
+  height: 500px;
+  border: 10px solid white;
+}

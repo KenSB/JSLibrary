@@ -1,0 +1,34 @@
+.lightning {
+  float:left;
+  position:relative;
+}
+
+.lightningBolt{
+  float:left;
+  position: absolute;
+  width: 50px;
+  height: 450px
+  --posEnd: 800px;
+  opacity: 0;
+  animation: flash 3s infinite;
+}
+
+.lightningSegment{
+  stroke: rgb(255,255,0);
+  stroke-width: 2;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0;
+  }
+  90%{
+    opacity: 0;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

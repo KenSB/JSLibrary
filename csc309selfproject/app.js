@@ -65,3 +65,5 @@ const clearSelect = document.querySelector('.clearPanel')
 clearSelect.innerHTML = aniWeather().aniClear();;
 const cloudSelect = document.querySelector('.cloudPanel')
 cloudSelect.innerHTML = aniWeather().aniCloud();;
+const lightningSelect = document.querySelector('.lightningPanel')
+lightningSelect.innerHTML = aniWeather().aniLightning();
