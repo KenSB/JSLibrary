@@ -7,6 +7,7 @@ const rainArgs={
   x: 0,
   y: 0,
   color: 'blue',
+  clouds: true
 }
 const rain = aniWeather().aniRain(rainArgs);
 rainSelect.innerHTML = rain;
@@ -46,6 +47,7 @@ const snowArgs={
   height: parseInt(snowSelect.clientHeight),
   x: 0,
   y: 0,
+  clouds: true
 }
 const snow = aniWeather().aniSnow(snowArgs);
 snowSelect.innerHTML = snow;

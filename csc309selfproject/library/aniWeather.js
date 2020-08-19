@@ -52,6 +52,7 @@ function aniWeather(){
         x: 0,
         y: 0,
         color: 'blue',
+        clouds: false
       }
       const args = Object.assign(defaults, context)
       //error checking ranges
@@ -67,7 +68,7 @@ function aniWeather(){
         args.speed = 3;
         args.intensity = 3;
       }
-      return animateRain(args.speed, args.intensity, args.width, args.height - 50, args.x, args.y, args.color)
+      return animateRain(args.speed, args.intensity, args.width, args.height - 50, args.x, args.y, args.color, args.clouds)
     },
     aniSnow: (context)=>{
       const defaults= {
@@ -77,6 +78,7 @@ function aniWeather(){
         height: 300,
         x: 0,
         y: 0,
+        clouds: false
       }
       const args = Object.assign(defaults, context)
       //error checking ranges
@@ -92,15 +94,48 @@ function aniWeather(){
         args.speed = 3;
         args.intensity = 3;
       }
-      return animateSnow(args.speed, args.intensity, args.width, args.height, args.x, args.y)
+      return animateSnow(args.speed, args.intensity, args.width, args.height, args.x, args.y, args.clouds)
     }
   }
   return self
 }
 
-const animateRain = (speed, intensity, width, height, x, y, color)=>{
+const animateRain = (speed, intensity, width, height, x, y, color, clouds)=>{
   let position = 0;
-  let rainEntities = '<div class="rain" '.concat(
+  let rainEntities = '';
+  if(clouds){
+    rainEntities = rainEntities.concat('<div class="cloud" ',
+      'style="left: ',x,'px; top: ',y,'px; width: ',width,'px; height: ',
+      height,'px; ','--cloudColor:lightgrey;',
+      '--travel5X:',((width-75)/100)*5,'px;',
+      '--travel95X:',((width-75)/100)*95,'px;',
+      '--travel98X:',((width-75)/100)*98,'px;',
+      '--travelEndX:',width-75,'px;','">')
+    for(let cloudRow=0; cloudRow<Math.ceil(width/100)+4+intensity;cloudRow++){
+      let position = 0;
+      while(position < 15 - (6-intensity)){
+        //A random number which represents the amount of space between raindrops.
+        //The density controls the width of the gap.
+        const cloudGap = Math.floor(Math.random()*(3 - 1 + 1)) + 1 ;
+        // Adds randomness to speed
+        const speedDelay = Math.floor(Math.random() * (99 - 1 + 1)) + 1;
+        const delaysecond = Math.floor(Math.random() * (12 - 1 + 1)) + 0;
+        const delayCenti = Math.floor(Math.random() * (99 - 1 + 1)) + 1;
+        // Randomizes the cloudSize length
+        const cloudSize = Math.floor(Math.random() * (4)) + 1;
+        position += cloudGap;
+        rainEntities = rainEntities.concat(
+          //cloud properties
+          //position from top
+          '<div class="cloudSize',cloudSize,'" style="top: ', position,'%;',
+          'animation-delay:', delaysecond,'.',delayCenti,'s;',
+          'animation-duration: ', 15 - ((5-speed)*2+(5-cloudSize)),'.',speedDelay,'s;"></div>',
+        )
+      }
+    }
+    rainEntities = rainEntities.concat('</div>')
+  }
+  rainEntities = rainEntities.concat('<div class="rain" ',
     'style="left: ',x,'px; top: ',y,'px; width: ',width,'px; height: ',
     height,'px;">')
   while(position < 100 - (6-intensity)*2){
@@ -149,9 +184,42 @@ const animateRain = (speed, intensity, width, height, x, y, color)=>{
   return rainEntities;
 }
 
-const animateSnow = (speed, intensity, width, height, x, y)=>{
+const animateSnow = (speed, intensity, width, height, x, y, clouds)=>{
   let position = 0;
-  let snowEntities = '<div class="snow" '.concat(
+  let snowEntities = '';
+  if(clouds){
+    snowEntities = snowEntities.concat('<div class="cloud" ',
+      'style="left: ',x,'px; top: ',y,'px; width: ',width,'px; height: ',
+      height,'px; ','--cloudColor:lightgrey;',
+      '--travel5X:',((width-75)/100)*5,'px;',
+      '--travel95X:',((width-75)/100)*95,'px;',
+      '--travel98X:',((width-75)/100)*98,'px;',
+      '--travelEndX:',width-75,'px;','">')
+    for(let cloudRow=0; cloudRow<Math.ceil(width/100)+4+intensity;cloudRow++){
+      let position = 0;
+      while(position < 15 - (6-intensity)){
+        //A random number which represents the amount of space between raindrops.
+        //The density controls the width of the gap.
+        const cloudGap = Math.floor(Math.random()*(3 - 1 + 1)) + 1 ;
+        // Adds randomness to speed
+        const speedDelay = Math.floor(Math.random() * (99 - 1 + 1)) + 1;
+        const delaysecond = Math.floor(Math.random() * (12 - 1 + 1)) + 0;
+        const delayCenti = Math.floor(Math.random() * (99 - 1 + 1)) + 1;
+        // Randomizes the cloudSize length
+        const cloudSize = Math.floor(Math.random() * (4)) + 1;
+        position += cloudGap;
+        snowEntities = snowEntities.concat(
+          //cloud properties
+          //position from top
+          '<div class="cloudSize',cloudSize,'" style="top: ', position,'%;',
+          'animation-delay:', delaysecond,'.',delayCenti,'s;',
+          'animation-duration: ', 15 - ((5-speed)*2+(5-cloudSize)),'.',speedDelay,'s;"></div>',
+        )
+      }
+    }
+    snowEntities = snowEntities.concat('</div>')
+  }
+  snowEntities = snowEntities.concat('<div class="snow" ',
     'style="left: ',x,'px; top: ',y,'px; width: ',width,'px; height: ',
     height,'px;">')
   while(position < 95){
@@ -218,10 +286,10 @@ const animateFog = (greyness, density, speed, width, height, x, y) => {
   let fogEntities = '<div class="cloud" '.concat(
     'style="left: ',x,'px; top: ',y,'px; width: ',width,'px; height: ',
     height,'px; ','--cloudColor:', colors[greyness-1],';',
-    '--travel5X:',(width/100)*5,'px;',
-    '--travel95X:',(width/100)*95,'px;',
-    '--travel98X:',(width/100)*98,'px;',
-    '--travelEndX:',width-20,'px;','">')
+    '--travel5X:',((width-25)/100)*5,'px;',
+    '--travel95X:',((width-25)/100)*95,'px;',
+    '--travel98X:',((width-25)/100)*98,'px;',
+    '--travelEndX:',width-25,'px;','">')
   for(let cloudRow=0; cloudRow<density;cloudRow++){
     let position = 0;
     while(position < 100 - (10-density)*2){

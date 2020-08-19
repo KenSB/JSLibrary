@@ -1,6 +1,6 @@
 .cloud{
   float:left;
-  position:relative;
+  position:absolute;
   --cloudColor: rgba(255, 255, 255, 1);
   --travelEndX: 1000px;
   --travel5X: 50px;

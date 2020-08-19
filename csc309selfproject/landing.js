@@ -42,10 +42,10 @@ clearSelect.innerHTML = aniWeather().aniClear(clearArgs);
 
 const fogArgs={
   greyness:3,
-  speed: 3, // 1<= speed <=5
+  speed: 5, // 1<= speed <=5
   intensity:3, // 1<= intensity <=5
   width: parseInt(snowSelect.clientWidth),
-  height: parseInt(snowSelect.clientHeight)- 50,
+  height: parseInt(snowSelect.clientHeight),
   x: 0,
   y: 0,
 }
