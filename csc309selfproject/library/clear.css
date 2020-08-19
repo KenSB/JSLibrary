@@ -3,7 +3,63 @@
   position:relative;
   width: 100%;
   height: 100%;
+  --time: 10s;
 }
+.sun {
+  position: absolute;
+  --sunWidth:500px;
+  --sunHeight1:-60px;
+  --sunHeight2:-105px;
+  --sunHeight3:-125px;
+  --sunHeight4:-135px;
+  top:40%;
+  left:0%;
+  animation: xAxis var(--time) linear infinite;
+}
+
+.sun::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: yellow;
+  animation: yAxis var(--time) linear infinite;
+}
+
+@keyframes yAxis {
+  0%{ transform: translateY(0px); opacity: 0;}
+  10% { transform: translateY(0px) ;opacity: 0;}
+  20% { transform: translateY(var(--sunHeight1)); opacity: 1;}
+  30% { transform: translateY(var(--sunHeight2)); opacity: 1;}
+  40% { transform: translateY(var(--sunHeight3)); opacity: 1;}
+  50% { transform: translateY(var(--sunHeight4)); opacity: 1;}
+  60% { transform: translateY(var(--sunHeight3)); opacity: 1;}
+  70% { transform: translateY(var(--sunHeight2)); opacity: 1;}
+  80% { transform: translateY(var(--sunHeight1)); opacity: 1;}
+  90% { transform: translateY(0px) ;opacity: 0;}
+  100% { transform: translateY(0px) ;opacity: 0;}
+}
+
+@keyframes xAxis {
+  0%{ transform: translateX(0px);}
+  100% { transform: translateX(var(--sunWidth));}
+}
+/* @keyframes sunOrbit {
+  0% { opacity: 0;}
+  10% { opacity: 0; transform: rotate(162deg) translateX(var(--sunWidth)) rotate(-162deg);}
+  15% { opacity: 1; transform: rotate(180deg) translateX(var(--sunWidth)) rotate(-180deg); }
+  25% { opacity: 1; transform: rotate(180deg) translateX(var(--sunWidth)) rotate(-180deg); }
+  35% { opacity: 1; transform: rotate(180deg) translateX(var(--sunWidth)) rotate(-180deg); }
+  45% { opacity: 1; transform: rotate(180deg) translateX(var(--sunWidth)) rotate(-180deg); }
+  50% { opacity: 1; transform: rotate(270deg) translateX(var(--sunHeight)) rotate(-270deg); }
+  55% { opacity: 1; transform: rotate(180deg) translateX(var(--sunWidth)) rotate(-180deg); }
+  65% { opacity: 1; transform: rotate(180deg) translateX(var(--sunWidth)) rotate(-180deg); }
+  75% { opacity: 1; transform: rotate(180deg) translateX(var(--sunWidth)) rotate(-180deg); }
+  85% { opacity: 1; transform: rotate(360deg) translateX(var(--sunWidth)) rotate(-360deg); }
+  90% { opacity: 0; transform: rotate(378deg) translateX(var(--sunWidth)) rotate(-378deg);}
+  100% { opacity: 0;}
+} */
 /* #000000, #000066, #000099,#0099ff, #ccccff, #ffcc99, #ffff99, #ff9900,#ffcc99, #00ccff, #87ceeb */
 .clearBackground{
   width: 100%;
@@ -16,9 +72,8 @@
   --colorSix: #ffff99;
   --colorSeven: #ff9900;
   --colorEight: #ffcc99;
-  --colorNine: #00ccff;
-  --colorTen: #87ceeb;
-  --time: 10s;
+  --colorNine: #87ceeb;
+  --colorTen: #00ccff;
   /* background-image: linear-gradient(#000000, #000066, #000099, #ccccff, #ffcc99, #ffff99, #ff9900,#ffcc99, #00ccff, #87ceeb); */
 }
 .clearSubBackground0{

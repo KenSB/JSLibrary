@@ -1,6 +1,6 @@
 .lightning {
   float:left;
-  position:relative;
+  position:absolute;
 }
 
 .lightningBolt{

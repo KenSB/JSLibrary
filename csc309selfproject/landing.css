@@ -65,9 +65,10 @@ body{
   position: absolute;
   float:left;
   left:0;
-  top:50%;
+  top:54%;
   width:50%;
   height:50%;
+  z-index: -30;
 }
 .fogSection{
   position: absolute;
@@ -76,5 +77,6 @@ body{
   left:50%;
   top:54%;
   width:50%;
-  height:50%;
+  height:46%;
+  z-index: -30;
 }

@@ -7,7 +7,8 @@ const rainArgs={
   x: 0,
   y: 0,
   color: 'blue',
-  clouds: true
+  clouds: true,
+  lightning: true
 }
 const rain = aniWeather().aniRain(rainArgs);
 rainSelect.innerHTML = rain;
@@ -67,5 +68,5 @@ const clearSelect = document.querySelector('.clearPanel')
 clearSelect.innerHTML = aniWeather().aniClear();
 const fogSelect = document.querySelector('.cloudPanel')
 fogSelect.innerHTML = aniWeather().aniFog();
-const lightningSelect = document.querySelector('.lightningPanel')
-lightningSelect.innerHTML = aniWeather().aniLightning();
+// const lightningSelect = document.querySelector('.lightningPanel')
+// lightningSelect.innerHTML = aniWeather().aniLightning();

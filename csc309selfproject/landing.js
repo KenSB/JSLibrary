@@ -7,20 +7,11 @@ const rainArgs={
   x: 0,
   y: 0,
   color: 'blue',
+  clouds: true,
+  lightning: true
 }
 const rain = aniWeather().aniRain(rainArgs);
 rainSelect.innerHTML = rain;
-
-const lightningArgs={
-  intensity:5, // 1<= intensity <=5
-  width: parseInt(rainSelect.clientWidth),
-  height: parseInt(rainSelect.clientHeight) - 10,
-  x: 0,
-  y: 0,
-  color: 'blue',
-}
-const lightningSelect = document.querySelector('.lightningSection')
-lightningSelect.innerHTML = aniWeather().aniLightning(lightningArgs);
 
 const snowSelect = document.querySelector('.snowSection')
 const snowArgs={
@@ -30,12 +21,18 @@ const snowArgs={
   height: parseInt(snowSelect.clientHeight)- 50,
   x: 0,
   y: 0,
+  clouds: true
 }
 const snow = aniWeather().aniSnow(snowArgs);
 snowSelect.innerHTML = snow;
 
 const clearArgs={
-  time: 10
+  time: 5,
+  width: parseInt(snowSelect.clientWidth),
+  height: parseInt(snowSelect.clientHeight),
+  x: 0,
+  y: 0,
+  clouds: true
 }
 const clearSelect = document.querySelector('.clearSection')
 clearSelect.innerHTML = aniWeather().aniClear(clearArgs);
