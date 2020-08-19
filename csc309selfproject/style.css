@@ -40,8 +40,8 @@ body{
 .lightningPanel {
   position: absolute;
   left: 300px;
-  top: 1700px;
+  top: 200px;
   width: 1000px;
-  height: 500px;
+  height: 300px;
   border: 10px solid white;
 }

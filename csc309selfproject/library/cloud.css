@@ -2,7 +2,10 @@
   float:left;
   position:relative;
   --cloudColor: rgba(255, 255, 255, 1);
-  --travelX: 1000px
+  --travelEndX: 1000px;
+  --travel5X: 50px;
+  --travel95X: 950px;
+  --travel98X: 980px;
 }
 
 .cloudSize1{
@@ -13,7 +16,7 @@
   left:0px;
   border-radius: 50%;
   background-color: var(--cloudColor);
-  animation: animateCloud 5s linear infinite;
+  animation: animateCloudSmall 5s linear infinite;
 }
 .cloudSize2{
   position: absolute;
@@ -23,7 +26,7 @@
   left:0px;
   border-radius: 50%;
   background-color: var(--cloudColor);
-  animation: animateCloud 5s linear infinite;
+  animation: animateCloudSmall 5s linear infinite;
 }
 .cloudSize3{
   position: absolute;
@@ -33,7 +36,7 @@
   left: 0px;
   border-radius: 50%;
   background-color: var(--cloudColor);
-  animation: animateCloud 5s linear infinite;
+  animation: animateCloudBig 5s linear infinite;
 }
 .cloudSize4{
   position: absolute;
@@ -43,24 +46,50 @@
   left:0px;
   border-radius: 50%;
   background-color: var(--cloudColor);
-  animation: animateCloud 5s linear infinite;
+  animation: animateCloudBig 5s linear infinite;
 }
 
-@keyframes animateCloud {
-    0% {
+@keyframes animateCloudSmall {
+  0% {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  5% {
+    opacity: 1;
+    transform: translateX(var(--travel5X));
+  }
+  95% {
+    opacity: 1;
+    transform: translateX(var(--travel95X));
+  }
+  98% {
       opacity: 0;
-      transform: translateX(0px);
-    }
-    5% {
-      opacity: 1;
-      transform: translateX(50px);
-    }
-    95% {
-        opacity: 1;
-        transform: translateX(950px);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(1000px);
-    }
+      transform: translateX(var(--travel98X));
+  }
+  100% {
+      opacity: 0;
+      transform: translateX(var(--travelEndX));
+  }
+}
+@keyframes animateCloudBig {
+  0% {
+    opacity: 0;
+    transform: translateX(0px);
+  }
+  5% {
+    opacity: 1;
+    transform: translateX(var(--travel5X));
+  }
+  95% {
+    opacity: 1;
+    transform: translateX(var(--travel95X));
+  }
+  98% {
+      opacity: 0;
+      transform: translateX(var(--travel98X));
+  }
+  100% {
+      opacity: 0;
+      transform: translateX(var(--travelEndX));
+  }
 }

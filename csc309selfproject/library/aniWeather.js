@@ -16,7 +16,7 @@ function aniWeather(){
       const defaults = {
         intensity:3, // 1<= intensity <=5
         width: 1000,
-        height: 500,
+        height: 300,
         x: 0,
         y: 0,
       }
@@ -25,15 +25,15 @@ function aniWeather(){
     },
     aniClear: (context)=>{
       const defaults = {
-        time: 12
+        time: 60
       }
       const args = Object.assign(defaults, context)
       return animateClear(args.time)
     },
-    aniCloud: (context)=>{
+    aniFog: (context)=>{
       const defaults = {
         greyness: 1, // 1(white)<= greyness <= 5(darkgrey)
-        density: 1, // 1 <= density <= 5
+        density: 5, // 1 <= density <= 5
         speed: 1, // 1 <= speed <= 5
         width: 1000,
         height: 500,
@@ -41,7 +41,7 @@ function aniWeather(){
         y: 0,
       }
       const args = Object.assign(defaults, context)
-      return animateCloud(args.greyness, args.density, args.speed, args.width- 50, args.height, args.x, args.y, args.color)
+      return animateFog(args.greyness, args.density, args.speed, args.width- 50, args.height, args.x, args.y, args.color)
     },
     aniRain: (context)=>{
       const defaults= {
@@ -203,7 +203,7 @@ const animateSnow = (speed, intensity, width, height, x, y)=>{
 }
 
 const animateClear = (time) => {
-  let backgroundElement = '<div class="clear"><div class="clearBackground">'
+  let backgroundElement = '<div class="clear"><div class="clearBackground" style="--time:'.concat(time,'s;">')
   const colors= ["#000000","#000066","#000099","#0099ff","#ccccff","#ffcc99","#ffff99","#ff9900","#ffcc99","#00ccff","#87ceeb"]
   for(let i=0;i<=11;i++){
     backgroundElement = backgroundElement.concat('<div class="clearSubBackground',i,'"></div>')
@@ -212,30 +212,40 @@ const animateClear = (time) => {
   return backgroundElement;
 }
 
-const animateCloud = (greyness, density, speed, width, height, x, y) => {
+const animateFog = (greyness, density, speed, width, height, x, y) => {
   let position = 0;
   const colors= ["#ffffff","#cccccc","#a6a6a6","#808080","#595959"]
-  let cloudEntities = '<div class="cloud" '.concat(
+  let fogEntities = '<div class="cloud" '.concat(
     'style="left: ',x,'px; top: ',y,'px; width: ',width,'px; height: ',
-    height,'px; ','--cloudColor:', colors[greyness-1],';','">')
-  while(position < 100 - (10-density)*2){
-    //A random number which represents the amount of space between raindrops.
-    //The density controls the width of the gap.
-    const cloudGap = Math.floor(Math.random()*(12 - density*2 - 1)) + 2 ;
-    // Adds randomness to speed
-    const speedDelay = Math.floor(Math.random() * (99 - 1 + 1)) + 1;
-    // Randomizes the cloudSize length
-    const cloudSize = Math.floor(Math.random() * (4)) + 1;
-    position += cloudGap;
-    cloudEntities = cloudEntities.concat(
-      //cloud properties
-      //position from top
-      '<div class="cloudSize',cloudSize,'" style="top: ', position,'%;',
-      'animation-duration: ', 20 - ((5-speed)*2+(5-cloudSize)),'.',speedDelay,'s;"></div>',
-    )
+    height,'px; ','--cloudColor:', colors[greyness-1],';',
+    '--travel5X:',(width/100)*5,'px;',
+    '--travel95X:',(width/100)*95,'px;',
+    '--travel98X:',(width/100)*98,'px;',
+    '--travelEndX:',width-20,'px;','">')
+  for(let cloudRow=0; cloudRow<density;cloudRow++){
+    let position = 0;
+    while(position < 100 - (10-density)*2){
+      //A random number which represents the amount of space between raindrops.
+      //The density controls the width of the gap.
+      const cloudGap = Math.floor(Math.random()*(12 - density*2 - 1)) + 2 ;
+      // Adds randomness to speed
+      const speedDelay = Math.floor(Math.random() * (99 - 1 + 1)) + 1;
+      const delaysecond = Math.floor(Math.random() * (12+density - 1 + 1)) + 0;
+      const delayCenti = Math.floor(Math.random() * (99 - 1 + 1)) + 1;
+      // Randomizes the cloudSize length
+      const cloudSize = Math.floor(Math.random() * (4)) + 1;
+      position += cloudGap;
+      fogEntities = fogEntities.concat(
+        //cloud properties
+        //position from top
+        '<div class="cloudSize',cloudSize,'" style="top: ', position,'%;',
+        'animation-delay:', delaysecond,'.',delayCenti,'s;',
+        'animation-duration: ', 20 - ((5-speed)*2+(5-cloudSize)),'.',speedDelay,'s;"></div>',
+      )
+    }
   }
-  cloudEntities = cloudEntities.concat('</div>')
-  return cloudEntities;
+  fogEntities = fogEntities.concat('</div>')
+  return fogEntities;
 }
 
 const animateLightning = (intensity, width, height, x, y)=>{

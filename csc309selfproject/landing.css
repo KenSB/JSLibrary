@@ -1,0 +1,80 @@
+body{
+  font-family: Impact, Charcoal, sans-serif;
+  background-color: #00BFFF;
+}
+.title{
+  display:flex;
+  font-size: 400%;
+  width:100%;
+  background-color: white;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left:0;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.sublinks{
+  display:flex;
+  padding: 0;
+  list-style: none;
+  width:100%;
+  justify-content: center;
+  margin: 0;
+  position: absolute;
+  left:0;
+  top: 60%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.buttonlinks{
+  background-color: white;
+  height:50px;
+  width: 100px;
+}
+
+.rainSection{
+  position: absolute;
+  left:0;
+  top:0;
+  float:left;
+  width:49.5%;
+  height:46%;
+  border-right: 25px solid white;
+}
+.lightningSection{
+  position: absolute;
+  left:0;
+  top:0;
+  float:left;
+  width:49.5%;
+  height:46%;
+  border-right: 25px solid white;
+}
+.snowSection{
+  position: absolute;
+  float:left;
+  left:50%;
+  top:0;
+  width:48%;
+  height:50%;
+}
+.clearSection{
+  position: absolute;
+  float:left;
+  left:0;
+  top:50%;
+  width:50%;
+  height:50%;
+}
+.fogSection{
+  position: absolute;
+  background-color: lightgrey;
+  float:left;
+  left:50%;
+  top:54%;
+  width:50%;
+  height:50%;
+}

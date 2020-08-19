@@ -62,8 +62,8 @@ function snowIntensity(intensity){
 }
 
 const clearSelect = document.querySelector('.clearPanel')
-clearSelect.innerHTML = aniWeather().aniClear();;
-const cloudSelect = document.querySelector('.cloudPanel')
-cloudSelect.innerHTML = aniWeather().aniCloud();;
+clearSelect.innerHTML = aniWeather().aniClear();
+const fogSelect = document.querySelector('.cloudPanel')
+fogSelect.innerHTML = aniWeather().aniFog();
 const lightningSelect = document.querySelector('.lightningPanel')
 lightningSelect.innerHTML = aniWeather().aniLightning();
