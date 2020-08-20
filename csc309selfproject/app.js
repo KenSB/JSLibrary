@@ -6,7 +6,7 @@ const rainArgs={
   height: parseInt(rainSelect.clientHeight),
   x: 0,
   y: 0,
-  color: 'blue',
+  color: 'blue', // any valid html color
   clouds: true,
   lightning: true
 }

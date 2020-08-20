@@ -212,7 +212,7 @@ const animateRain = (args)=>{
       '<div class="raindrop" style="left: ', position,'%;',
       '--rainColor:', args.color,';',
       //The ending position
-      '--posEnd: ',args.height,'px;',
+      '--posEnd: ',(args.height/100)*85,'px;',
       //delay of the raindrop and duration of the raindrop (speed)
       'animation-delay: 0.', delay,'s;',
       'animation-duration: 0.', 8- args.speed, speedDelay, 's;">',
@@ -331,13 +331,13 @@ const animateFog = (args) => {
   let fogEntities = '<div class="cloud" '.concat(
     'style="left: ',args.x,'px; top: ',args.y,'px; width: ',args.width,'px; height: ',
     args.height,'px; ','--cloudColor:', colors[args.greyness-1],';',
-    '--travel5X:',((args.width-75)/100)*5,'px;',
-    '--travel95X:',((args.width-75)/100)*95,'px;',
-    '--travel98X:',((args.width-75)/100)*98,'px;',
-    '--travelEndX:',args.width-75,'px;','">')
+    '--travel5X:',((args.width-100)/100)*5,'px;',
+    '--travel95X:',((args.width-100)/100)*95,'px;',
+    '--travel98X:',((args.width-100)/100)*98,'px;',
+    '--travelEndX:',args.width-100,'px;','">')
   for(let cloudRow=0; cloudRow<args.density;cloudRow++){
     let position = 0;
-    while(position < 90 - (10-args.density)*2){
+    while(position < 95 - (10-args.density)*2){
       //A random number which represents the amount of space between raindrops.
       //The density controls the width of the gap.
       const cloudGap = Math.floor(Math.random()*(12 - args.density*2 - 1)) + 2 ;
