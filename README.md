@@ -31,4 +31,4 @@ In the desired javascript file. More information about the methods can be found 
 
 ## Landing Page
 The landing page can be found at:
-https://vast-everglades-23329.herokuapp.com/?fbclid=IwAR0-4NmPbgqD6DipmFgtq5K3D6c_yQ9Eii6Gd5mmYUu5JADhnXTKC6ASabQ
+https://vast-everglades-23329.herokuapp.com/
