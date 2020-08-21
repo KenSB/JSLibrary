@@ -37,8 +37,8 @@ const clearArgs={
 const fogSelect = document.querySelector('.fogSection')
 const fogArgs={
   greyness:3,
-  speed: 5, // 1<= speed <=5
-  intensity:3, // 1<= intensity <=5
+  speed: 1, // 1<= speed <=5
+  density:5, // 1<= intensity <=5
   width: parseInt(fogSelect.clientWidth),
   height: parseInt(fogSelect.clientHeight),
   x: 0,

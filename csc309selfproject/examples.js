@@ -46,17 +46,6 @@ const clearArgs={
   clouds: false
 }
 
-// const fogSelect = document.querySelector('.fogSection')
-// const fogArgs={
-//   greyness:3,
-//   speed: 5, // 1<= speed <=5
-//   intensity:3, // 1<= intensity <=5
-//   width: parseInt(fogSelect.clientWidth),
-//   height: parseInt(fogSelect.clientHeight),
-//   x: 0,
-//   y: 0,
-// }
-
 function landing() {
   const animateW = new AniWeather();
 
@@ -70,9 +59,6 @@ function landing() {
 
   const clear =animateW.aniClear(clearArgs);
   clearSelect.innerHTML = clear;
-
-  // const fog = animateW.aniFog(fogArgs);
-  // fogSelect.innerHTML = fog;
 }
 landing();
 

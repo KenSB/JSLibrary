@@ -88,7 +88,7 @@ const fogSelect = document.querySelector('.fogPanel')
 const fogArgs={
   greyness:3,
   speed: 5, // 1<= speed <=5
-  intensity:3, // 1<= intensity <=5
+  density:3, // 1<= intensity <=5
   width: parseInt(fogSelect.clientWidth),
   height: parseInt(fogSelect.clientHeight),
   x: 0,
@@ -102,11 +102,10 @@ function fogSpeed(speed){
   fogArgs.speed=speed;
   examples(4);
 }
-function fogIntensity(intensity){
-  fogArgs.intensity=intensity;
+function fogDensity(density){
+  fogArgs.density=density;
   examples(4);
 }
-
 
 function buildRain(animateW){
   const rain = animateW.aniRain(rainArgs);

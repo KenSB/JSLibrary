@@ -177,7 +177,7 @@
       position += snowGap;
       if(snowType === 1){
         snowEntities = snowEntities.concat(
-          //raindrop properties
+          //snowflake properties
           //position from left
           '<div class="snowflake1" style="left: ', position,'%;',
           //positions for the animation
@@ -277,17 +277,6 @@
 
 
   AniWeather.prototype = {
-    aniLightning: (context)=>{
-      const defaults = {
-        intensity:3, // 1<= intensity <=5
-        width: 1000,
-        height: 300,
-        x: 0,
-        y: 0,
-      }
-      const args = Object.assign(defaults, context)
-      return animateLightning(args.intensity, args.width, args.height, args.x, args.y)
-    },
     aniClear: (context)=>{
       const defaults = {
         time: 60,
@@ -298,19 +287,65 @@
         y: 0,
       }
       const args = Object.assign(defaults, context)
+      //error checking ranges
+      try{
+        if(1 > args.time){
+          args.time = 15;
+        }
+        if(1 > args.intensity || 5 < args.intensity ){
+          args.intensity = 3;
+        }
+        if(100 > args.width){
+          args.width = 300;
+        }
+        if(100 > args.height ){
+          args.height = 300;
+        }
+      }
+      catch{
+        args.time = 15;
+        args.intensity = 3;
+        args.width = 300;
+        args.height = 300;
+      }
       return animateClear(args)
     },
     aniFog: (context)=>{
       const defaults = {
-        greyness: 1, // 1(white)<= greyness <= 5(darkgrey)
-        density: 5, // 1 <= density <= 5
-        speed: 1, // 1 <= speed <= 5
+        greyness: 3, // 1(white)<= greyness <= 5(darkgrey)
+        density: 3, // 1 <= density <= 5
+        speed: 3, // 1 <= speed <= 5
         width: 1000,
         height: 500,
         x: 0,
         y: 0,
       }
       const args = Object.assign(defaults, context)
+      //error checking ranges
+      try{
+        if(1 > args.speed || 5 < args.speed ){
+          args.speed = 3;
+        }
+        if(1 > args.density || 5 < args.density ){
+          args.density = 3;
+        }
+        if(1 > args.greyness || 5 < args.greyness ){
+          args.greyness = 3;
+        }
+        if(100 > args.width){
+          args.width = 300;
+        }
+        if(100 > args.height ){
+          args.height = 300;
+        }
+      }
+      catch{
+        args.speed = 3;
+        args.density = 3;
+        args.greyness = 3;
+        args.width = 300;
+        args.height = 300;
+      }
       return animateFog(args)
     },
     aniRain: (context)=>{
@@ -334,10 +369,18 @@
         if(1 > args.intensity || 5 < args.intensity ){
           args.intensity = 3;
         }
+        if(100 > args.width){
+          args.width = 300;
+        }
+        if(100 > args.height ){
+          args.height = 300;
+        }
       }
       catch{
         args.speed = 3;
         args.intensity = 3;
+        args.width = 300;
+        args.height = 300;
       }
       return animateRain(args)
       // return animateRain(args.speed, args.intensity, args.width, args.height - 50, args.x, args.y, args.color, args.clouds, args.lightning)
@@ -361,10 +404,18 @@
         if(1 > args.intensity || 5 < args.intensity ){
           args.intensity = 3;
         }
+        if(100 > args.width){
+          args.width = 300;
+        }
+        if(100 > args.height ){
+          args.height = 300;
+        }
       }
       catch{
         args.speed = 3;
         args.intensity = 3;
+        args.width = 300;
+        args.height = 300;
       }
       return animateSnow(args)
     }
