@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Library Example</title>
+  <link rel="stylesheet" type="text/css" href=".\experiment.css">
+  <link rel="stylesheet" type="text/css" href=".\library\rain.css">
+  <link rel="stylesheet" type="text/css" href=".\library\snow.css">
+  <link rel="stylesheet" type="text/css" href=".\library\clear.css">
+  <link rel="stylesheet" type="text/css" href=".\library\cloud.css">
+  <link rel="stylesheet" type="text/css" href=".\library\lightning.css">
+</head>
+<body>
+  <a href='.\landing.html'><button class="backButton">BACK</button></a>
+  <h1 class="title">Experiment Page </h1>
+  <div class="rainSettings">
+    <h3>Rain Speed</h3>
+    <button onclick="rainSpeed(1)">1</button>
+    <button onclick="rainSpeed(2)">2</button>
+    <button onclick="rainSpeed(3)">3</button>
+    <button onclick="rainSpeed(4)">4</button>
+    <button onclick="rainSpeed(5)">5</button>
+    <h3>Rain Intensity</h3>
+    <button onclick="rainIntensity(1)">1</button>
+    <button onclick="rainIntensity(2)">2</button>
+    <button onclick="rainIntensity(3)">3</button>
+    <button onclick="rainIntensity(4)">4</button>
+    <button onclick="rainIntensity(5)">5</button>
+    <h3>Rain Color</h3>
+    <button onclick="rainColor(1)">white</button>
+    <button onclick="rainColor(2)">black</button>
+    <button onclick="rainColor(3)">red</button>
+    <button onclick="rainColor(4)">blue</button>
+    <h3>Rain Clouds</h3>
+    <button onclick="rainClouds(true)">On</button>
+    <button onclick="rainClouds(false)">Off</button>
+    <h3>Lightning</h3>
+    <button onclick="rainLightning(true)">On</button>
+    <button onclick="rainLightning(false)">Off</button>
+  </div>
+  <div class='rainPanel'></div>
+  <div class="snowSettings">
+    <h3></h3>
+    <h3>Snow Speed</h3>
+    <button onclick="snowSpeed(1)">1</button>
+    <button onclick="snowSpeed(2)">2</button>
+    <button onclick="snowSpeed(3)">3</button>
+    <button onclick="snowSpeed(4)">4</button>
+    <button onclick="snowSpeed(5)">5</button>
+    <h3>Snow Intensity</h3>
+    <button onclick="snowIntensity(1)">1</button>
+    <button onclick="snowIntensity(2)">2</button>
+    <button onclick="snowIntensity(3)">3</button>
+    <button onclick="snowIntensity(4)">4</button>
+    <button onclick="snowIntensity(5)">5</button>
+    <h3>Snow Clouds</h3>
+    <button onclick="snowClouds(true)">On</button>
+    <button onclick="snowClouds(false)">Off</button>
+  </div>
+  <div class="clearSettings">
+    <h3></h3>
+    <h3>Cycle Duration</h3>
+    <button onclick="clearTime(5)">5s</button>
+    <button onclick="clearTime(10)">10s</button>
+    <button onclick="clearTime(20)">20s</button>
+    <button onclick="clearTime(60)">60s</button>
+    <h3>Clouds</h3>
+    <button onclick="clearClouds(true)">On</button>
+    <button onclick="clearClouds(false)">Off</button>
+  </div>
+  <div class="fogSettings">
+    <h3></h3>
+    <h3>Fog greyness</h3>
+    <button onclick="fogGreyness(1)">1</button>
+    <button onclick="fogGreyness(2)">2</button>
+    <button onclick="fogGreyness(3)">3</button>
+    <button onclick="fogGreyness(4)">4</button>
+    <button onclick="fogGreyness(5)">5</button>
+    <h3>Fog speed</h3>
+    <button onclick="fogSpeed(1)">1</button>
+    <button onclick="fogSpeed(2)">2</button>
+    <button onclick="fogSpeed(3)">3</button>
+    <button onclick="fogSpeed(4)">4</button>
+    <button onclick="fogSpeed(5)">5</button>
+    <h3>Fog intensity</h3>
+    <button onclick="fogIntensity(1)">1</button>
+    <button onclick="fogIntensity(2)">2</button>
+    <button onclick="fogIntensity(3)">3</button>
+    <button onclick="fogIntensity(4)">4</button>
+    <button onclick="fogIntensity(5)">5</button>
+  </div>
+  <div class="snowPanel"></div>
+  <div class="clearPanel"></div>
+  <div class="cloudPanel"></div>
+  <div class="fogPanel"></div>
+  <script src="./library/aniWeather.js" type="text/javascript"></script>
+  <script src="experiment.js" type="text/javascript"></script>
+</body>
+</html>

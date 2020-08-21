@@ -32,6 +32,7 @@
   height: 60%;
   margin-left: 10px;
   --rainColor: white;
+  opacity: 0;
   background: linear-gradient(to bottom, var(--rainColor), var(--rainColor));
   animation: stem .5s linear infinite;
 }

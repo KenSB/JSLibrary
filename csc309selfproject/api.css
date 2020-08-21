@@ -2,6 +2,14 @@ body{
   font-family: Arial, Helvetica, sans-serif;
   background-color: #00BFFF;
 }
+.back{
+  position: absolute;
+  top:0px;
+  left:50px;
+  width: 100px;
+  height: 50px;
+  font-style: bold;
+}
 .title{
   display:flex;
   justify-content: center;
@@ -19,7 +27,7 @@ body{
   position:relative;
   left: 10%;
   font-size: 200%;
-  height: 600px;
+  height: 700px;
 
 }
 .subsection{
@@ -27,10 +35,31 @@ body{
   font-size: 100%;
   margin:0px;
 }
+.sublist{
+  position:relative;
+  font-size: 60%;
+  margin-left:100px;
+  margin-bottom: 100px;
+}
 .subtext{
   position:relative;
   left: 50px;
   font-size: 50%;
+}
+.imageCSS{
+  position:absolute;
+  top:0px;
+  left:750px;
+}
+.imageScript{
+  position:absolute;
+  top:240px;
+  left:750px;
+}
+.imageInit{
+  position:absolute;
+  top:330px;
+  left:850px;
 }
 .image{
   position:absolute;

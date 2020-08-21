@@ -2,69 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Library Example</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>aniWeather</title>
+  <link rel="stylesheet" type="text/css" href=".\examples.css">
+  <link rel="stylesheet" type="text/css" href=".\library\rain.css">
+  <link rel="stylesheet" type="text/css" href=".\library\snow.css">
+  <link rel="stylesheet" type="text/css" href=".\library\clear.css">
+  <link rel="stylesheet" type="text/css" href=".\library\cloud.css">
+  <link rel="stylesheet" type="text/css" href=".\library\lightning.css">
 </head>
 <body>
-  <h1>aniWeather.js Example Page </h1>
-  <div class="rainSettings">
-    <h3>Rain Speed</h3>
-    <button onclick="rainSpeed(1)">1</button>
-    <button onclick="rainSpeed(2)">2</button>
-    <button onclick="rainSpeed(3)">3</button>
-    <button onclick="rainSpeed(4)">4</button>
-    <button onclick="rainSpeed(5)">5</button>
-    <h3>Rain Intensity</h3>
-    <button onclick="rainIntensity(1)">1</button>
-    <button onclick="rainIntensity(2)">2</button>
-    <button onclick="rainIntensity(3)">3</button>
-    <button onclick="rainIntensity(4)">4</button>
-    <button onclick="rainIntensity(5)">5</button>
-    <h3>Rain Color</h3>
-    <button onclick="rainColor(1)">white</button>
-    <button onclick="rainColor(2)">black</button>
-    <button onclick="rainColor(3)">red</button>
-    <button onclick="rainColor(4)">blue</button>
-    <h3>Rain Clouds</h3>
-    <button onclick="rainClouds(1)">On</button>
-    <button onclick="rainClouds(2)">Off</button>
+  <a href='.\landing.html'><button class="backButton">BACK</button></a>
+  <h1 class="title"> aniWeather.js Examples </h1>
+  <h2 class="dayNightDesc"> Time Display Example </h2>
+  <h3 class="subDayNightDesc"> A simple day/night timer with the animation.</h3>
+  <div class="dayNight">
+    <div class="sky"></div>
+    <div class="timer">0:00</div>
   </div>
-  <div class='rainPanel'></div>
-  <div class="snowSettings">
-    <h3></h3>
-    <h3>Snow Speed</h3>
-    <button onclick="snowSpeed(1)">1</button>
-    <button onclick="snowSpeed(2)">2</button>
-    <button onclick="snowSpeed(3)">3</button>
-    <button onclick="snowSpeed(4)">4</button>
-    <button onclick="snowSpeed(5)">5</button>
-    <h3>Snow Intensity</h3>
-    <button onclick="snowIntensity(1)">1</button>
-    <button onclick="snowIntensity(2)">2</button>
-    <button onclick="snowIntensity(3)">3</button>
-    <button onclick="snowIntensity(4)">4</button>
-    <button onclick="snowIntensity(5)">5</button>
-    <h3>Snow Clouds</h3>
-    <button onclick="rainClouds(1)">On</button>
-    <button onclick="rainClouds(2)">Off</button>
+  <hr class="seperation1"/>
+  <h2 class="weatherDesc"> Weather Display Example </h2>
+  <h3 class="subWeatherDesc"> Possible weather websites using the animation.</h3>
+  <div class="weather1">
+    <div class="rainFrame"></div>
+    <div class="currentDate">Aug 21, 2020</div>
+    <div class="currentTime">10:00PM</div>
+    <div class="temperature">24°C</div>
   </div>
-  <div class="clearSettings">
-    <h3></h3>
-    <h3>Snow Speed</h3>
-    <button onclick="snowSpeed(1)">1</button>
-    <button onclick="snowSpeed(2)">2</button>
+  <div class="weather2">
+    <div class="snowFrame"></div>
+    <div class="currentDate">Nov 13, 2020</div>
+    <div class="currentTime">3:00PM</div>
+    <div class="temperature">2°C</div>
   </div>
-  <div class="fogSettings">
-    <h3></h3>
-    <h3>Snow Speed</h3>
-    <button onclick="snowSpeed(1)">1</button>
-    <button onclick="snowSpeed(2)">2</button>
+  <hr class="seperation2"/>
+  <h2 class="socialDesc"> Social Media Account Display Example </h2>
+  <h3 class="subSocialDesc"> The animation indicates the moods of the user.</h3>
+  <div class="social">
+    <div class="rainFrame2"></div>
+    <div class="profileBar">
+      <div class="profileStuff">Mood:Angry</div>
+      <div class="profileStuff2">Friends</div>
+      <div class="profileStuff3">Pictures</div>
+      <div class="profileStuff4">Posts</div>
+    </div>
+    <div class="pfp">
+      <img class="pfpImage" src="./images/pfp.png" alt="profile"/>
+    </div>
   </div>
-  <div class="snowPanel"></div>
-  <div class="clearPanel"></div>
-  <div class="cloudPanel"></div>
-  <div class="lightningPanel"></div>
   <script src="./library/aniWeather.js" type="text/javascript"></script>
-  <script src="app.js" type="text/javascript"></script>
+  <script src="examples.js" type="text/javascript"></script>
 </body>
 </html>

@@ -3,12 +3,33 @@
 <head>
   <meta charset="utf-8">
   <title>Library Example</title>
-  <link rel="stylesheet" type="text/css" href="api.css">
+  <link rel="stylesheet" type="text/css" href="./api.css">
 </head>
 <body>
+  <a href='.\landing.html'><button class="backButton">BACK</button></a>
   <h1 class="title"> API </h1>
   <div class="functions">
-    <h2> aniWeather().aniRain(args) </h2>
+    <h2> Getting Started </h2>
+    <h3 class="subtext"> Include the library and its required css files in the head and body of the html as listed.</h3>
+    <h3 class="subtext"> Confirm that the paths are correct before including them. </h3>
+    <ul class="sublist">
+      <li>rain.css</li>
+      <li>snow.css</li>
+      <li>clear.css</li>
+      <li>cloud.css</li>
+      <li>lightning.css</li>
+      <li>aniWeather.js</li>
+    </ul>
+    <img class="imageCSS" src="./images/cssExample.png" alt="css example"/>
+    <img class="imageScript" src="./images/scriptExample.png" alt="script example"/>
+    <h3 class="subtext"> In your javascript, initialize a AniWeather object to access the functions of this library. </h3>
+    <h3 class="subtext"> More details on each function is listed below </h3>
+    <img class="imageInit" src="./images/initExample.png" alt="init example"/>
+
+  </div>
+  <hr/>
+  <div class="functions">
+    <h2> AniWeather.aniRain(args) </h2>
     <h3 class="subsection"> Description:</h3>
     <h3 class="subtext"> This function creates a rain animation with various elements that can be manipulated.</h3>
     <h3 class="subsection"> Arguments:</h3>
@@ -66,12 +87,12 @@
       </tr>
     </table>
     <h3 class="subsection"> Return: </h3>
-    <h3 class="subtext"> This function returns html which can be then inserted into a div as shown on the right.</h3>
+    <h3 class="subtext"> This function returns html which can be then inserted into a div.</h3>
     <img class="image" src="./images/rainExample.png" alt="rain example"/>
   </div>
   <hr/>
   <div class="functions">
-    <h2> aniWeather().aniSnow(args) </h2>
+    <h2> AniWeather.aniSnow(args) </h2>
     <h3 class="subsection"> Description:</h3>
     <h3 class="subtext"> This function creates a snow animation with various elements that can be manipulated.</h3>
     <h3 class="subsection"> Arguments:</h3>
@@ -119,12 +140,12 @@
       </tr>
     </table>
     <h3 class="subsection"> Return: </h3>
-    <h3 class="subtext"> This function returns html which can be then inserted into a div as shown on the right.</h3>
+    <h3 class="subtext"> This function returns html which can be then inserted into a div.</h3>
     <img class="image" src="./images/snowExample.png" alt="snow example"/>
   </div>
   <hr/>
   <div class="functions">
-    <h2> aniWeather().aniClear(args)  </h2>
+    <h2> AniWeather.aniClear(args)  </h2>
     <h3 class="subsection"> Description:</h3>
     <h3 class="subtext"> This function creates a clear animation with various elements that can be manipulated.</h3>
     <h3 class="subsection"> Arguments:</h3>
@@ -172,12 +193,12 @@
       </tr>
     </table>
     <h3 class="subsection"> Return: </h3>
-    <h3 class="subtext"> This function returns html which can be then inserted into a div as shown on the right.</h3>
+    <h3 class="subtext"> This function returns html which can be then inserted into a div.</h3>
     <img class="image" src="./images/clearExample.png" alt="clear example"/>
   </div>
   <hr/>
   <div class="functions">
-    <h2> aniWeather().aniFog(args)  </h2>
+    <h2> AniWeather.aniFog(args)  </h2>
     <h3 class="subsection"> Description:</h3>
     <h3 class="subtext"> This function creates a fog animation with various elements that can be manipulated.</h3>
     <h3 class="subsection"> Arguments:</h3>
@@ -225,7 +246,7 @@
       </tr>
     </table>
     <h3 class="subsection"> Return: </h3>
-    <h3 class="subtext"> This function returns html which can be then inserted into a div as shown on the right.</h3>
+    <h3 class="subtext"> This function returns html which can be then inserted into a div.</h3>
     <img class="image" src="./images/fogExample.png" alt="fog example"/>
   </div>
   <hr/>
