@@ -26,67 +26,71 @@ body{
 .rainPanel {
   display: block;
   position: absolute;
-  left: 300px;
+  left: 35%;
   top: 200px;
   width: 1000px;
   height: 300px;
   border: 10px solid white;
+  background-color: #0066cc;
 }
 .rainSettings {
   background-color: white;
   display: block;
   position: absolute;
-  left: 50px;
+  left: 10%;
   top: 150px;
   border: 10px solid white;
 }
 .snowPanel {
   display: block;
   position: absolute;
-  left: 300px;
+  left: 35%;
   top: 600px;
   width: 1000px;
   height: 300px;
   border: 10px solid white;
+  background-color: #0066cc;
 }
 .snowSettings {
   background-color: white;
   display: block;
   position: absolute;
-  left: 50px;
+  left: 10%;
   top: 650px;
   border: 10px solid white;
 }
 .clearPanel {
   display: block;
   position: absolute;
-  left: 300px;
+  left: 35%;
   top: 1000px;
   width: 1000px;
   height: 300px;
   border: 10px solid white;
+  background-color: #0066cc;
 }
 .clearSettings {
   background-color: white;
   display: block;
   position: absolute;
-  left: 50px;
+  left: 10%;
   top: 1100px;
   border: 10px solid white;
 }
 .fogPanel {
   position: absolute;
-  left: 300px;
+  left: 35%;
   top: 1400px;
   width: 1000px;
   height: 300px;
   border: 10px solid white;
+  background-color: #0066cc;
 }
 .fogSettings {
   background-color: white;
   display: block;
   position: absolute;
-  left: 50px;
+  left: 10%;
   top: 1450px;
   border: 10px solid white;
 }
