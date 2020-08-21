@@ -1,3 +1,5 @@
+"use strict";
+
 const rainSelect = document.querySelector('.rainSection')
 const rainArgs={
   speed: 5, // 1<= speed <=5
@@ -10,8 +12,6 @@ const rainArgs={
   clouds: true,
   lightning: true
 }
-const rain = aniWeather().aniRain(rainArgs);
-rainSelect.innerHTML = rain;
 
 const snowSelect = document.querySelector('.snowSection')
 const snowArgs={
@@ -23,8 +23,6 @@ const snowArgs={
   y: 0,
   clouds: true
 }
-const snow = aniWeather().aniSnow(snowArgs);
-snowSelect.innerHTML = snow;
 
 const clearSelect = document.querySelector('.clearSection')
 const clearArgs={
@@ -35,8 +33,6 @@ const clearArgs={
   y: 0,
   clouds: true
 }
-const clear = aniWeather().aniClear(clearArgs);
-clearSelect.innerHTML = clear;
 
 const fogSelect = document.querySelector('.fogSection')
 const fogArgs={
@@ -48,5 +44,20 @@ const fogArgs={
   x: 0,
   y: 0,
 }
-const fog = aniWeather().aniFog(fogArgs);
-fogSelect.innerHTML = fog;
+
+function landing() {
+  const animateW = new AniWeather();
+
+  const rain = animateW.aniRain(rainArgs);
+  rainSelect.innerHTML = rain;
+
+  const snow = animateW.aniSnow(snowArgs);
+  snowSelect.innerHTML = snow;
+
+  const clear =animateW.aniClear(clearArgs);
+  clearSelect.innerHTML = clear;
+
+  const fog = animateW.aniFog(fogArgs);
+  fogSelect.innerHTML = fog;
+}
+landing();
